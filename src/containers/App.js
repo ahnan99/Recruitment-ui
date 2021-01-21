@@ -1,11 +1,11 @@
+import MainView from "./MainView";
 
 
 function App() {
   return (
     <div className="App">
      
-          Learn React
-      
+          <MainView/>
     </div>
   );
 }
