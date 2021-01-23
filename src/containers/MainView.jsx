@@ -4,7 +4,19 @@ import { Route, withRouter } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import routes from '../routes'
 import './MainView.css'
-
+import { actions as LoginActions } from '../modules/application'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import {
+    AuditOutlined,
+    QuestionCircleOutlined,
+    InfoCircleOutlined,
+    UserOutlined,
+    LogoutOutlined,
+    MailOutlined,
+    AppstoreOutlined,
+    ScheduleOutlined
+} from '@ant-design/icons';
 const { Content, Footer, Sider } = Layout
 class MainView extends Component {
 
@@ -14,6 +26,11 @@ class MainView extends Component {
                 <Route key={route.pathKey} exact {...route} />
             ))
         )
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount")
+        this.props.actions.confirmLogin()
     }
 
 
@@ -28,36 +45,16 @@ class MainView extends Component {
                 this.props.history.push("/homepage")
                 break
             case "2":
-                this.props.history.push("/courseselect")
+                this.props.actions.requestLogout()
                 break
             case "3":
-                this.props.history.push("/certpage")
-                break
-            case "4":
-                this.props.history.push("/userinfo")
-                break
-            case "5":
-                this.props.history.push("/feedbackpage")
-                break
-            case "6":
-                this.props.history.push("/messagepage")
-                break
-            case "7":
-                this.props.history.push("/helppage")
-                break
-            case "8":
-                this.props.actions.requestLogout()
+                this.props.history.push("/login")
                 break
             default:
                 this.props.history.push("/homepage")
         }
     }
 
-    componentWillReceiveProps = (nextProps) => {
-        if (nextProps.application.loggedIn == false) {
-            this.props.history.push("/login")
-        }
-    }
 
     setCollapse = () => {
         this.setState({ collapsed: !this.state.collapsed })
@@ -77,7 +74,17 @@ class MainView extends Component {
                         <b style={{ color: 'white' }}></b>
                     </div>
                     <Menu onClick={this.onClick} theme="dark" mode="inline">
-
+                        <Menu.Item key="1" icon={<AppstoreOutlined />} title={""}>
+                            主页
+                        </Menu.Item>
+                        {this.props.application.loggedIn ?
+                            <Menu.Item key="2" icon={<LogoutOutlined />} title={""}>
+                                登出
+                            </Menu.Item> :
+                            <Menu.Item key="3" icon={<InfoCircleOutlined />} title={""}>
+                                登录/注册
+                         </Menu.Item>
+                        }
                     </Menu>
                 </Sider>
                 <Layout className="site-layout" style={{ padding: 0 }}>
@@ -93,6 +100,12 @@ class MainView extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    application: state.application
+})
 
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(LoginActions, dispatch)
+})
 
-export default withRouter(MainView)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainView))
