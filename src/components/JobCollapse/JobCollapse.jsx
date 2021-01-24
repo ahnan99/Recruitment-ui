@@ -38,7 +38,7 @@ class JobCollapse extends Component {
                     <List.Item>
                         <List.Item.Meta
                             onClick={() => this.onClickTitle(item)}
-                            title={<a style={{ color:'blue' }}>{item.jobName}</a>}
+                            title={<div><span style={{ textAlign:'right', marginLeft:100 }}>{item.jobName}</span><span style={{textAlign:'right', marginLeft:50, color:'blue',fontSize:'5px'}}>详情&gt;&gt;</span></div>}
                             description={<div>
                                 <span>发布日期: {item.issueDate}</span>
                             </div>}
