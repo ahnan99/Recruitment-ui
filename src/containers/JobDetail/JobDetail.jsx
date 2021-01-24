@@ -77,6 +77,7 @@ class JobDetail extends Component {
         if (this.props.application.loggedIn) {
             this.showModal()
         } else {
+            message.info('请先登录')
             this.props.history.push('/login')
         }
     }

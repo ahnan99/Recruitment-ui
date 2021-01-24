@@ -35,14 +35,15 @@ class RegisterForm extends Component {
     constructor(props) {
         super(props)
         this.checkIDcard = checkIDcard
-        this.state = { kindID: "0" }
+        this.state = { username: null, password: null }
     }
 
 
     componentDidUpdate = prevProps => {
         if (this.props.application.registered) {
             message.success('注册成功')
-            this.props.history.push('login')
+            this.props.actions.requestLogin({ username: this.state.username, password: this.state.password })
+            this.props.history.push('/login')
             this.props.actions.resetRegisterStatus()
         } else if (this.props.application.registerError) {
             message.error(this.props.application.registerError)
@@ -61,6 +62,10 @@ class RegisterForm extends Component {
             password: values.password
         })
         console.log('Success:', values)
+        this.setState({
+            username: values.username,
+            password: values.password
+        })
     }
 
 
