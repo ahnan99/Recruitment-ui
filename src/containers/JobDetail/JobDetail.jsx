@@ -96,7 +96,7 @@ class JobDetail extends Component {
                             <Descriptions.Item label="岗位名称" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].jobName}</Descriptions.Item>
                             <Descriptions.Item label="发布日期" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].issueDate}</Descriptions.Item>
                             <Descriptions.Item label="录用条件" labelStyle={{ fontWeight: 'bolder' }}></Descriptions.Item><Descriptions.Item><ul>{jobRequirement.map(req => <li style={{ textAlign: 'left' }} key={req.ID}>{req.item}</li>)}</ul></Descriptions.Item>
-                            <Descriptions.Item label="薪资范围" labelStyle={{ fontWeight: 'bolder' }}><span style={{ textAlign: 'left' }}>{jobInfo[0].payMin + " - " + jobInfo[0].payMax}</span></Descriptions.Item>
+                            <Descriptions.Item label="薪资范围" labelStyle={{ fontWeight: 'bolder' }}><span style={{ textAlign: 'left' }}>{jobInfo[0].payMin + " - " + jobInfo[0].payMax}元/月</span></Descriptions.Item>
                             <Descriptions.Item label="薪资结构" labelStyle={{ fontWeight: 'bolder' }}><span style={{ textAlign: 'left' }}>{jobInfo[0].payStructure}</span></Descriptions.Item>
                             <Descriptions.Item label="福利待遇" labelStyle={{ fontWeight: 'bolder' }}><span style={{ textAlign: 'left' }}>{jobInfo[0].beneft}</span></Descriptions.Item>
                             <Descriptions.Item label="说明" labelStyle={{ fontWeight: 'bolder' }}><span style={{ textAlign: 'left' }}>{jobInfo[0].memo}</span></Descriptions.Item>
