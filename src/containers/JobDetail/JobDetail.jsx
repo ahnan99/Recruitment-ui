@@ -95,7 +95,6 @@ class JobDetail extends Component {
                         <Descriptions title={<a>{jobInfo[0].jobName}</a>}>
                             <Descriptions.Item label="岗位名称" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].jobName}</Descriptions.Item>
                             <Descriptions.Item label="发布日期" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].issueDate}</Descriptions.Item>
-                            <Descriptions.Item label="招聘人数" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].qty}</Descriptions.Item>
                             <Descriptions.Item label="录用条件" labelStyle={{ fontWeight: 'bolder' }}><ul>{jobRequirement.map(req => <li style={{ textAlign: 'left' }} key={req.ID}>{req.item}</li>)}</ul></Descriptions.Item>
                             <Descriptions.Item label="薪资范围" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].payMin + " - " + jobInfo[0].payMax}</Descriptions.Item>
                             <Descriptions.Item label="薪资结构" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].payStructure}</Descriptions.Item>
