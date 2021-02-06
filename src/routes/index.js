@@ -2,6 +2,7 @@ import HomePage from "../containers/HomePage/HomePage"
 import JobDetail from "../containers/JobDetail/JobDetail"
 import LoginPage from "../containers/LoginPage/LoginPage"
 import Register from "../containers/Register/Register"
+import Resume from "../containers/ResumePage/ResumePage"
 
 const routes = [{
     path: '/homepage',
@@ -22,6 +23,11 @@ const routes = [{
     path: '/register',
     pathKey: 'register',
     component: Register
+},
+{
+    path: '/resume',
+    pathKey: 'resume',
+    component: Resume
 }
 ]
 

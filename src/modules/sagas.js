@@ -1,10 +1,12 @@
 import { all, fork } from 'redux-saga/effects'
 import jobsSaga from './jobs/sagas'
 import applicationSaga from './application/sagas'
+import resumeSaga from './resume/sagas'
 
 const sagas = [
     jobsSaga,
-    applicationSaga
+    applicationSaga,
+    resumeSaga
 ]
 
 function* rootSaga(){

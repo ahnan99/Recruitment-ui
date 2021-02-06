@@ -50,6 +50,9 @@ class MainView extends Component {
             case "3":
                 this.props.history.push("/login")
                 break
+            case "4":
+                this.props.history.push("/resume")
+                break
             default:
                 this.props.history.push("/homepage")
         }
@@ -77,6 +80,9 @@ class MainView extends Component {
                         <Menu.Item key="1" icon={<AppstoreOutlined />} title={""}>
                             主页
                         </Menu.Item>
+                        <Menu.Item key="4" icon={<AppstoreOutlined />} title={""}>
+                            个人简历
+                        </Menu.Item>
                         {this.props.application.loggedIn ?
                             <Menu.Item key="2" icon={<LogoutOutlined />} title={""}>
                                 登出
@@ -85,6 +91,7 @@ class MainView extends Component {
                                 登录/注册
                          </Menu.Item>
                         }
+
                     </Menu>
                 </Sider>
                 <Layout className="site-layout" style={{ padding: 0 }}>
