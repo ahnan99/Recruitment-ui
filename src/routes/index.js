@@ -1,3 +1,4 @@
+import AccountPage from "../containers/AccountPage/AccountPage"
 import HomePage from "../containers/HomePage/HomePage"
 import JobDetail from "../containers/JobDetail/JobDetail"
 import LoginPage from "../containers/LoginPage/LoginPage"
@@ -28,6 +29,11 @@ const routes = [{
     path: '/resume',
     pathKey: 'resume',
     component: Resume
+},
+{
+    path: '/accountInfo',
+    pathKey: 'accountInfo',
+    component: AccountPage
 }
 ]
 

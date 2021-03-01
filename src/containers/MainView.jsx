@@ -53,6 +53,9 @@ class MainView extends Component {
             case "4":
                 this.props.history.push("/resume")
                 break
+            case "5":
+                this.props.history.push("/accountInfo")
+                break
             default:
                 this.props.history.push("/homepage")
         }
@@ -82,6 +85,9 @@ class MainView extends Component {
                         </Menu.Item>
                         <Menu.Item key="4" icon={<AppstoreOutlined />} title={""}>
                             个人简历
+                        </Menu.Item>
+                        <Menu.Item key="5" icon={<AppstoreOutlined />} title={""}>
+                            账号信息
                         </Menu.Item>
                         {this.props.application.loggedIn ?
                             <Menu.Item key="2" icon={<LogoutOutlined />} title={""}>
