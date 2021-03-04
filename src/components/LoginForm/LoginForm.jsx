@@ -16,6 +16,7 @@ class LoginForm extends Component {
             message.error(this.props.application.loginError)
         }
         if (this.props.application.loggedIn) {
+            this.props.accountActions.getAccountInfo({ username: this.props.application.username })
             this.props.history.push('/homepage')
             if (this.props.jobs.jobSelected) {
                 this.props.history.push('/jobdetail?jobID=' + this.props.jobs.jobSelected)
@@ -26,6 +27,7 @@ class LoginForm extends Component {
     componentWillMount = () => {
         if (this.props.application.loggedIn) {
             this.props.history.push('/homepage')
+            this.props.accountActions.getAccountInfo({ username: this.props.application.username })
             if (this.props.jobs.jobSelected) {
                 this.props.history.push('/jobdetail?jobID=' + this.props.jobs.jobSelected)
             }

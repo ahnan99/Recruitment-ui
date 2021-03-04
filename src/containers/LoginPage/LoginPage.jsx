@@ -6,7 +6,7 @@ import { Row, Col } from 'antd'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { actions as LoginActions } from '../../modules/application'
-
+import { actions as AccountActions } from '../../modules/account'
 
 class LoginPage extends Component {
 
@@ -27,7 +27,10 @@ class LoginPage extends Component {
                         </div>
                     </div>
 
-                    <LoginForm application={this.props.application} actions={this.props.actions} jobs={this.props.jobs} />
+                    <LoginForm
+                        application={this.props.application}
+                        accountActions={this.props.accountActions}
+                        actions={this.props.actions} jobs={this.props.jobs} />
 
                 </Col>
                 <Col xs={2} sm={4} md={6} lg={8} xl={8}>
@@ -44,7 +47,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(LoginActions, dispatch)
+    actions: bindActionCreators(LoginActions, dispatch),
+    accountActions: bindActionCreators(AccountActions, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

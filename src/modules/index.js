@@ -1,14 +1,18 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux'
 import jobsReducer from './jobs'
 import applicationReducer from './application'
 import resumeReducer from './resume'
 import accountReducer from './account'
+import myApplicationReducer from './myapplication'
+import messageReducer from './message'
 
 const rootReducer = combineReducers({
     jobs: jobsReducer,
     application: applicationReducer,
     resume: resumeReducer,
-    account: accountReducer
+    account: accountReducer,
+    myApplication: myApplicationReducer,
+    message: messageReducer
 })
 
 export default rootReducer

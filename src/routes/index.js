@@ -4,6 +4,9 @@ import JobDetail from "../containers/JobDetail/JobDetail"
 import LoginPage from "../containers/LoginPage/LoginPage"
 import Register from "../containers/Register/Register"
 import Resume from "../containers/ResumePage/ResumePage"
+import ApplicationPage from '../containers/ApplicationPage/ApplicationPage'
+import FeedbackPage from '../containers/FeedbackPage/FeedbackPage'
+import MessagePage from '../containers/MessagePage/MessagePage'
 
 const routes = [{
     path: '/homepage',
@@ -34,7 +37,22 @@ const routes = [{
     path: '/accountInfo',
     pathKey: 'accountInfo',
     component: AccountPage
-}
+},
+{
+    path: '/myApplication',
+    pathKey: 'myApplication',
+    component: ApplicationPage
+},
+{
+    path: '/feedbackpage',
+    pathKey: 'feedbackpage',
+    component: FeedbackPage
+},
+{
+    path: '/messagepage',
+    pathKey: 'messagepage',
+    component: MessagePage
+},
 ]
 
 
