@@ -70,7 +70,7 @@ class FeedbackForm extends Component {
                 <Form.Item
                     name="email"
                     label="邮箱"
-                    rules={[{ required: true, message: '请输入邮箱' }]}
+                    rules={[{ required: false, message: '请输入邮箱' }]}
                 >
                     <Input
                     />
@@ -78,6 +78,7 @@ class FeedbackForm extends Component {
                 <Form.Item
                     name="kindID"
                     label="问题类型"
+                    rules={[{ required: true }]}
                 >
                     <Select>
                         {this.props.message.messageTypes.map(type => (

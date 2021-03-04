@@ -8,7 +8,7 @@ class FeedbackPage extends Component {
 
     componentDidMount() {
         this.props.actions.getMessageType({
-            "kind": "feedback"
+            "kindID": "feedback"
         })
     }
 
