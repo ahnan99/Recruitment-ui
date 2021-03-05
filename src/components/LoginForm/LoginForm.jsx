@@ -46,6 +46,11 @@ class LoginForm extends Component {
     onChange = (e) => {
         console.log(`checked = ${e.target.checked}`);
     }
+
+    onClickReg () {
+        this.props.history.push('/register')
+    }
+
     render() {
         return (
             <Form
@@ -77,7 +82,7 @@ class LoginForm extends Component {
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         登录
                     </Button>
-                    <span> </span>或 <a href="/register">注册</a>
+                    <span> </span>或 <a onClick={()=>this.onClickReg()}>注册</a>
                 </Form.Item>
             </Form>
         )
