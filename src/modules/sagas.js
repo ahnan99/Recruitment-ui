@@ -5,7 +5,7 @@ import resumeSaga from './resume/sagas'
 import accountSaga from './account/sagas'
 import myApplicationSaga from './myapplication/sagas'
 import messageSaga from './message/sagas'
-import messageReducer from './message'
+import referSaga from './refer/sagas'
 
 const sagas = [
     jobsSaga,
@@ -14,7 +14,7 @@ const sagas = [
     accountSaga,
     myApplicationSaga,
     messageSaga,
-    messageReducer
+    referSaga
 ]
 
 function* rootSaga() {

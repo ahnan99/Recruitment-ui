@@ -12,7 +12,7 @@ const layout = {
 class LoginForm extends Component {
 
     componentDidUpdate = prevProps => {
-        if (this.props.application.loginError) {
+        if (this.props.application.loginError && prevProps.application.loginError !== this.props.application.loginError) {
             message.error(this.props.application.loginError)
         }
         if (this.props.application.loggedIn) {
@@ -47,7 +47,7 @@ class LoginForm extends Component {
         console.log(`checked = ${e.target.checked}`);
     }
 
-    onClickReg () {
+    onClickReg() {
         this.props.history.push('/register')
     }
 
@@ -82,7 +82,7 @@ class LoginForm extends Component {
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         登录
                     </Button>
-                    <span> </span>或 <a onClick={()=>this.onClickReg()}>注册</a>
+                    <span> </span>或 <a onClick={() => this.onClickReg()}>注册</a>
                 </Form.Item>
             </Form>
         )

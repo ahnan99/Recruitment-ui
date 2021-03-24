@@ -65,6 +65,12 @@ class MainView extends Component {
             case "8":
                 this.props.history.push("/messagepage")
                 break
+            case "9":
+                this.props.history.push("/posterList")
+                break
+            case "10":
+                this.props.history.push("/refer")
+                break
             default:
                 this.props.history.push("/homepage")
         }
@@ -98,14 +104,20 @@ class MainView extends Component {
                         <Menu.Item key="6" icon={<AppstoreOutlined />} title={""}>
                             我的应聘
                         </Menu.Item>
+                        <Menu.Item key="9" icon={<AppstoreOutlined />} title={""}>
+                            我要推广
+                        </Menu.Item>
+                        <Menu.Item key="10" icon={<AppstoreOutlined />} title={""}>
+                            我推荐的
+                        </Menu.Item>
                         <Menu.Item key="5" icon={<AppstoreOutlined />} title={""}>
                             账号信息
                         </Menu.Item>
+                        <Menu.Item key="8" icon={<MailOutlined />} title={""}>
+                            我的消息
+                        </Menu.Item>
                         <Menu.Item key="7" icon={<InfoCircleOutlined />} title={""}>
                             反馈
-                        </Menu.Item>
-                        <Menu.Item key="8" icon={<MailOutlined />} title={""}>
-                            消息
                         </Menu.Item>
                         {this.props.application.loggedIn ?
                             <Menu.Item key="2" icon={<LogoutOutlined />} title={""}>

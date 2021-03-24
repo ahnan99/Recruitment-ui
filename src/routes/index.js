@@ -7,6 +7,9 @@ import Resume from "../containers/ResumePage/ResumePage"
 import ApplicationPage from '../containers/ApplicationPage/ApplicationPage'
 import FeedbackPage from '../containers/FeedbackPage/FeedbackPage'
 import MessagePage from '../containers/MessagePage/MessagePage'
+import PosterListPage from "../containers/Poster/PosterListPage"
+import PosterDetailPage from "../containers/Poster/PosterDetailPage"
+import ReferPage from "../containers/ReferPage/ReferPage"
 
 const routes = [{
     path: '/homepage',
@@ -53,6 +56,21 @@ const routes = [{
     pathKey: 'messagepage',
     component: MessagePage
 },
+{
+    path: '/posterList',
+    pathKey: 'posterList',
+    component: PosterListPage
+},
+{
+    path: '/posterDetail',
+    pathKey: 'posterDetail',
+    component: PosterDetailPage
+},
+{
+    path: '/refer',
+    pathKey: 'refer',
+    component: ReferPage
+}
 ]
 
 
