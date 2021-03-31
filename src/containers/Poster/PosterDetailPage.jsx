@@ -12,7 +12,7 @@ class PosterDetailList extends Component {
         return (
             <div>
                 <Image src={axios.defaults.baseURL + this.props.refer.poster} />
-                <span>请点击图片，然后长按，转发给微信里的朋友。</span>
+                <span>请点击上面图片，然后长按，转发给朋友。</span>
             </div>
         )
     }
