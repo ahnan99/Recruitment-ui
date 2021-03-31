@@ -71,6 +71,9 @@ class MainView extends Component {
             case "10":
                 this.props.history.push("/refer")
                 break
+            case "11":
+                this.props.history.push("/about")
+                break
             default:
                 this.props.history.push("/homepage")
         }
@@ -94,7 +97,7 @@ class MainView extends Component {
                     <div className="logo">
                         <b style={{ color: 'white' }}></b>
                     </div>
-                    <Menu onClick={this.onClick} theme="dark" mode="inline">
+                    <Menu onClick={this.onClick} theme="dark" mode="inline" overflowedIndicator={<span>...</span>}>
                         <Menu.Item key="1" icon={<AppstoreOutlined />} title={""}>
                             主页
                         </Menu.Item>
@@ -118,6 +121,9 @@ class MainView extends Component {
                         </Menu.Item>
                         <Menu.Item key="7" icon={<InfoCircleOutlined />} title={""}>
                             反馈
+                        </Menu.Item>
+                        <Menu.Item key="11" icon={<InfoCircleOutlined />} title={""}>
+                            关于我们
                         </Menu.Item>
                         {this.props.application.loggedIn ?
                             <Menu.Item key="2" icon={<LogoutOutlined />} title={""}>

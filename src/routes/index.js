@@ -10,6 +10,7 @@ import MessagePage from '../containers/MessagePage/MessagePage'
 import PosterListPage from "../containers/Poster/PosterListPage"
 import PosterDetailPage from "../containers/Poster/PosterDetailPage"
 import ReferPage from "../containers/ReferPage/ReferPage"
+import AboutPage from "../containers/About/AboutPage"
 
 const routes = [{
     path: '/homepage',
@@ -70,6 +71,11 @@ const routes = [{
     path: '/refer',
     pathKey: 'refer',
     component: ReferPage
+},
+{
+    path: '/about',
+    pathKey: 'about',
+    component: AboutPage
 }
 ]
 
