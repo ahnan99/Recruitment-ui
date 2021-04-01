@@ -54,9 +54,9 @@ const SkillModal = ({ onCancel, visible, submit, confirmLoading, editingItem, re
                     ]}
                 >
                     <Select>
-                        {resume.skillLevel.map(level => (
+                        {resume.skillLevel ? resume.skillLevel.map(level => (
                             <Select.Option key={level.ID} value={level.ID}>{level.item}</Select.Option>
-                        ))}
+                        )) : null}
                     </Select>
                 </Form.Item>
                 <Form.Item
