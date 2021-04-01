@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button, Modal, Form, Input, Radio } from 'antd';
+import { Button, Modal, Form, Input, Radio, Select } from 'antd';
 
 
-const SkillModal = ({ onCancel, visible, submit, confirmLoading, editingItem }) => {
+const SkillModal = ({ onCancel, visible, submit, confirmLoading, editingItem, resume }) => {
     const [form] = Form.useForm();
     editingItem ? form.setFieldsValue(editingItem) : form.resetFields()
     return (
@@ -10,8 +10,8 @@ const SkillModal = ({ onCancel, visible, submit, confirmLoading, editingItem }) 
         <Modal
             visible={visible}
             title="技能"
-            okText="Create"
-            cancelText="Cancel"
+            okText="确定"
+            cancelText="取消"
             confirmLoading={confirmLoading}
             onCancel={onCancel}
             destroyOnClose
@@ -53,7 +53,11 @@ const SkillModal = ({ onCancel, visible, submit, confirmLoading, editingItem }) 
                         },
                     ]}
                 >
-                    <Input />
+                    <Select>
+                        {resume.skillLevel.map(level => (
+                            <Select.Option key={level.ID} value={level.ID}>{level.item}</Select.Option>
+                        ))}
+                    </Select>
                 </Form.Item>
                 <Form.Item
                     name="years"

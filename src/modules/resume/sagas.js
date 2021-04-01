@@ -31,6 +31,10 @@ function* postResumeWatch() {
     yield takeLatest(types.POST_RESUME, postResumeWorker)
 }
 
+function* getSkillLevelWatch() {
+    yield takeLatest(types.GET_SKILL_LEVEL, getSkillLevelWorker)
+}
+
 export function getResume(data) {
     return axios.get('/hunters/get_resume', {
         params: data
@@ -69,6 +73,11 @@ export function postResume(data) {
     return axios.post('/hunters/update_resume', data)
 }
 
+export function getSkillLevel() {
+    return axios.get('/public/getDicListByKind', {
+        params: { kindID: "proficiency" }
+    })
+}
 
 //workers
 function* getResumeWorker(action) {
@@ -102,6 +111,15 @@ function* getEmploymentListWorker(action) {
     try {
         const response = yield call(getEmploymentList, action.payload)
         yield put(actions.updateEmploymentList(response.data))
+    } catch (error) {
+        yield console.log(error)
+    }
+}
+
+function* getSkillLevelWorker(action) {
+    try {
+        const response = yield call(getSkillLevel, action.payload)
+        yield put(actions.updateSkillLevel(response.data))
     } catch (error) {
         yield console.log(error)
     }
@@ -151,6 +169,7 @@ export default function* saga() {
         postResumeDetailWatch(),
         deleteResumeDetailWatch(),
         getEmploymentListlWatch(),
-        getEducationListWatch()
+        getEducationListWatch(),
+        getSkillLevelWatch()
     ])
 }

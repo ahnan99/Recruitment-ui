@@ -37,6 +37,7 @@ class ResumeForm extends Component {
             this.props.actions.getResumeDetail({ username: this.props.application.username })
             this.props.actions.getEmploymentList()
             this.props.actions.getEducationList()
+            this.props.actions.getSkillLevel()
         } else {
             this.props.history.push('/login')
         }

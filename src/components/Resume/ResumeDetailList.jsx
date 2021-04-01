@@ -140,7 +140,8 @@ export default class ResumeDetailList extends Component {
                     submit={(values, editingItem) => this.submitSkill(values, editingItem)}
                     confirmLoading={this.state.loading}
                     editingItem={this.state.editingItem}
-                    onCancel={this.onCancel} />
+                    onCancel={this.onCancel}
+                    resume={this.props.resume}/>
                 <EducationModal visible={this.state.educationVisible}
                     submit={(values, editingItem) => this.submitEducation(values, editingItem)}
                     confirmLoading={this.state.loading}
@@ -168,7 +169,7 @@ export default class ResumeDetailList extends Component {
                             < List.Item.Meta
                                 title={<p>{item.item}</p>}
                                 description={this.props.kind === "skill" ?
-                                    item.detail + "   " + item.years + " 年" :
+                                    item.detail1 + "   " + item.years + " 年" :
                                     item.detail + "   " + item.dateStart + " ~ " + item.dateEnd}
                             />
                         </List.Item>

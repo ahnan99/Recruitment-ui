@@ -13,6 +13,8 @@ const GET_EDUCATION_LIST = 'get_education_list'
 const UPDATE_EDUCATION_LIST = 'update_education_list'
 const GET_EMPLOYMENT_LIST = 'get_employment_list'
 const UPDATE_EMPLOYMENT_LIST = 'update_employment_list'
+const GET_SKILL_LEVEL = 'get_skill_level'
+const UPDATE_SKILL_LEVEL = 'update_skill_level'
 
 
 export const types = {
@@ -29,7 +31,9 @@ export const types = {
     GET_EDUCATION_LIST,
     UPDATE_EDUCATION_LIST,
     GET_EMPLOYMENT_LIST,
-    UPDATE_EMPLOYMENT_LIST
+    UPDATE_EMPLOYMENT_LIST,
+    GET_SKILL_LEVEL,
+    UPDATE_SKILL_LEVEL
 }
 
 //Action creators
@@ -105,6 +109,15 @@ const updateEducationList = data =>({
     data
 })
 
+const getSkillLevel = payload => ({
+    type: GET_SKILL_LEVEL,
+    payload
+});
+
+const updateSkillLevel = data =>({
+    type: UPDATE_SKILL_LEVEL,
+    data
+})
 
 export const actions = {
     getResume,
@@ -120,7 +133,10 @@ export const actions = {
     getEmploymentList,
     updateEmploymentList,
     getEducationList,
-    updateEducationList
+    updateEducationList,
+    getSkillLevel,
+    updateSkillLevel
+
 }
 
 const initialState = {
@@ -130,7 +146,8 @@ const initialState = {
     postResumeDetail: null,
     deleteResumeDetail: null,
     employmentList: null,
-    educationList: null
+    educationList: null,
+    skillLevel: null
 }
 //Reducers
 const reducer = (state = initialState, action = {}) => {
@@ -175,6 +192,12 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 educationList: action.data
+            }
+        }
+        case UPDATE_SKILL_LEVEL: {
+            return {
+                ...state,
+                skillLevel: action.data
             }
         }
         default:
