@@ -84,6 +84,10 @@ class MainView extends Component {
         this.setState({ collapsed: !this.state.collapsed })
     }
 
+    setCollapseContent = () => {
+        this.setState({ collapsed: true })
+    }
+
     render() {
         return (
             <Layout>
@@ -137,7 +141,7 @@ class MainView extends Component {
                     </Menu>
                 </Sider>
                 <Layout className="site-layout" style={{ padding: 0 }}>
-                    <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+                    <Content style={{ margin: '24px 16px 0', overflow: 'initial' }} onClick={this.setCollapseContent}>
                         <div className="site-layout-background" style={{ padding: 24, minHeight: 360, textAlign: 'center' }}>
                             {this.routes}
                         </div>
