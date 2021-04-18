@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, message } from 'antd'
 import { Route, withRouter } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import routes from '../routes'
@@ -8,14 +8,10 @@ import { actions as LoginActions } from '../modules/application'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import {
-    AuditOutlined,
-    QuestionCircleOutlined,
     InfoCircleOutlined,
-    UserOutlined,
     LogoutOutlined,
     MailOutlined,
     AppstoreOutlined,
-    ScheduleOutlined
 } from '@ant-design/icons';
 const { Content, Footer, Sider } = Layout
 class MainView extends Component {
@@ -90,7 +86,7 @@ class MainView extends Component {
 
     render() {
         return (
-            <Layout>
+            <Layout onClick={message.destroy()}>
                 <Sider
                     breakpoint="md"
                     collapsedWidth="0"
