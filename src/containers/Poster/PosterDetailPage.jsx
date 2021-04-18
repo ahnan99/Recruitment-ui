@@ -7,7 +7,12 @@ import { FormProvider } from 'antd/lib/form/context'
 class PosterDetailList extends Component {
 
     componentDidMount() {
-        message.info('请点击图片，然后长按，转发给朋友。', 10)
+        message.info({
+            content: '请点击上面图片，然后长按，转发给朋友。',
+            style: {
+                color: 'red'
+            },
+        }, 10)
     }
 
     render() {
