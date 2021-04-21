@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Image, message } from 'antd'
+import { Image, message, Affix } from 'antd'
 import axios from 'axios'
 import { FormProvider } from 'antd/lib/form/context'
 class PosterDetailList extends Component {
@@ -12,7 +12,18 @@ class PosterDetailList extends Component {
             style: {
                 color: 'red'
             },
-        }, 10)
+        }, 30)
+
+
+    }
+
+
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            visible: true
+        }
     }
 
     render() {
@@ -21,8 +32,13 @@ class PosterDetailList extends Component {
         }
         return (
             <div>
-                <Image src={axios.defaults.baseURL + this.props.refer.poster} />
+                <Image src={axios.defaults.baseURL + this.props.refer.poster} onClick={() => { this.setState({ visible: false }) }} />
                 <span>请点击上面图片，然后长按，转发给朋友。</span>
+                {this.state.visible ? <Affix style={{ marginTop: '10vh', paddingTop:'10px', paddingBottom:'10px' }} offsetBottom={10}>
+                    <div style={{ backgroundColor: 'orange', width: '100%', fontSize: "1.2em", fontWeight: 'bold', color: "red" }}>
+                        <>转发推荐岗位成功有奖励</>
+                    </div>
+                </Affix> : null}
             </div>
         )
     }
