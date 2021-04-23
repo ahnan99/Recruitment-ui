@@ -4,6 +4,9 @@ import { actions as ReferActions } from '../../modules/refer'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
+import {
+    FilePptOutlined
+} from '@ant-design/icons';
 
 class PosterList extends Component {
 
@@ -33,10 +36,10 @@ class PosterList extends Component {
                 itemLayout="horizontal"
                 dataSource={this.props.refer.posterList}
                 renderItem={item => (
-                    <List.Item>
+                    <List.Item style={{ textAlign: 'left' }}>
                         <List.Item.Meta
                             onClick={() => this.onClickTitle(item)}
-                            title={<div><span style={{ color: 'blue' }}>
+                            title={<div><FilePptOutlined /><span> </span><span style={{ color: 'blue' }}>
                                 {item.item}</span>
                             </div>}
                         />

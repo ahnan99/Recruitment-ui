@@ -4,8 +4,9 @@ import { actions as JobsActions } from '../../modules/jobs'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
-import axios from 'axios'
-
+import {
+    PlaySquareOutlined
+} from '@ant-design/icons';
 
 class JobCollapse extends Component {
 
@@ -15,20 +16,27 @@ class JobCollapse extends Component {
     }
 
     render() {
-        const { data } = this.props;
+        const { data } = this.props
         if (!data) {
             return (<h3>载入中...</h3>)
         }
+
+        const filtered = data.filter(obj => obj.jobName.indexOf(this.props.search) >= 0)
+
         return (
             <List
                 itemLayout="horizontal"
-                dataSource={data}
+                dataSource={this.props.search ? filtered : data}
                 renderItem={item => (
                     <List.Item>
                         <List.Item.Meta
                             onClick={() => this.onClickTitle(item)}
-                            title={<div><span style={{ textAlign:'right', marginLeft:100 }}>{item.jobName}</span><span style={{textAlign:'right', marginLeft:50, color:'blue',fontSize:'0.85em'}}>详情&gt;&gt;</span></div>}
+                            title={<div>
+                                <span style={{  float: 'left' }}>{item.jobName}</span>
+                                <span style={{ float: 'right', color: 'blue', fontSize: '1.15em' }}><PlaySquareOutlined /></span>
+                            </div>}
                             description={<div>
+                                <br/>
                                 <span>发布日期: {item.issueDate}</span>
                             </div>}
                         />

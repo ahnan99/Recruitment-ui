@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Descriptions, Row, Col, Button, Modal, message } from 'antd'
+import { Descriptions, Row, Col, Button, Modal, message, Affix } from 'antd'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -92,7 +92,8 @@ class JobDetail extends Component {
             <div>
                 <Row gutter={[16, 32]}>
                     <Col span={24}>
-                        <Descriptions title={<a>{jobInfo[0].jobName}</a>}>
+                        <Descriptions title={<a>{jobInfo[0].jobName}</a>}
+                            extra={<Affix offsetTop={20}><Button type="primary" onClick={this.onClickApply}>我要申请</Button></Affix>}>
                             <Descriptions.Item label="岗位名称" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].jobName}</Descriptions.Item>
                             <Descriptions.Item label="发布日期" labelStyle={{ fontWeight: 'bolder' }}>{jobInfo[0].issueDate}</Descriptions.Item>
                             <Descriptions.Item label="录用条件" labelStyle={{ fontWeight: 'bolder' }}></Descriptions.Item><Descriptions.Item><ul>{jobRequirement.map(req => <li style={{ textAlign: 'left' }} key={req.ID}>{req.item}</li>)}</ul></Descriptions.Item>
@@ -115,11 +116,8 @@ class JobDetail extends Component {
                     <p>确认要申请这个职位么</p>
                 </Modal>
                 <Row gutter={[16, 32]}>
-                    <Col span={12}>
+                    <Col span={24}>
                         <Button type="primary" onClick={this.onClickBack}>返回列表</Button>
-                    </Col>
-                    <Col span={12}>
-                        <Button type="primary" onClick={this.onClickApply}>申请职位</Button>
                     </Col>
                 </Row>
             </div>

@@ -4,6 +4,8 @@ import { actions as JobsActions } from '../../modules/jobs'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import qs from 'qs'
+import { Input } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
 
 class HomePage extends Component {
 
@@ -19,10 +21,22 @@ class HomePage extends Component {
 
     }
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            search: null
+        }
+    }
+
+    onChange = e => {
+        this.setState({ search: e.target.value })
+    };
+
     render() {
         return (
             <div>
-                <JobCollapse data={this.props.jobs.jobList} />
+                <Input placeholder=" 这里有你心仪的职位 " allowClear prefix={<SearchOutlined />} onChange={this.onChange} />
+                <JobCollapse data={this.props.jobs.jobList} search={this.state.search} />
             </div>
         )
     }
