@@ -92,6 +92,17 @@ class MainView extends Component {
         this.props.actions.confirmLogin()
     }
 
+    componentDidUpdate = prevProps => {
+        if(prevProps.application.loggedIn && !this.props.application.loggedIn){
+            this.toggleDrawer('top', false)
+            message.info('登出成功')
+        }
+
+        if(!prevProps.application.loggedIn && this.props.application.loggedIn){
+            this.toggleDrawer('top', false)
+            message.success('登录成功')
+        }
+    }
 
     constructor(props) {
         super(props)
