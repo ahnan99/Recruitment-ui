@@ -35,7 +35,7 @@ class HomePage extends Component {
     render() {
         return (
             <div>
-                <Input placeholder=" 这里有你心仪的职位 " allowClear prefix={<SearchOutlined />} onChange={this.onChange} />
+                <Input placeholder=" 搜我心仪的职位 " allowClear prefix={<SearchOutlined />} onChange={this.onChange} />
                 <JobCollapse data={this.props.jobs.jobList} search={this.state.search} />
             </div>
         )
